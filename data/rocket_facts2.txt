@@ -1,0 +1,17 @@
+(actors
+ (london PLACE_T)
+ (paris PLACE_T)
+ (r1 ROCKET_T)
+ (r2 ROCKET_T)
+ (alex CARGO_T))
+
+(start
+ (at r1 london)
+ (at r2 london)
+ (at alex london)
+ (has-fuel r1)
+ (has-fuel r2))
+
+(goal
+ (at alex paris)
+ (at jason jfk))

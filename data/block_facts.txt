@@ -1,0 +1,15 @@
+(actors
+ (block-a BLOCK_T)
+ (block-b BLOCK_T)
+ (block-c BLOCK_T))
+
+(start
+ (on block-a block-c)
+ (clear block-a)
+ (on-table block-b)
+ (clear block-b)
+ (on-table block-c))
+
+(goal
+ (on block-a block-b)
+ (on block-b block-c))

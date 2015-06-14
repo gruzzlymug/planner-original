@@ -1,0 +1,23 @@
+(operator LOAD
+           (params (?object CARGO_T) (?rocket ROCKET_T) (?place PLACE_T))
+           (preconds (at ?rocket ?place) (at ?object ?place))
+           (add-list (in ?object ?rocket))
+           (del-list (at ?object ?place)))
+          
+(operator UNLOAD
+           (params (?object CARGO_T) (?rocket ROCKET_T) (?place PLACE_T))
+           (preconds (at ?rocket ?place) (in ?object ?rocket))
+           (add-list (at ?object ?place))
+           (del-list (in ?object ?rocket)))
+
+(operator MOVE
+           (params (?rocket ROCKET_T) (?from PLACE_T) (?to PLACE_T))
+           (preconds (has-fuel ?rocket) (at ?rocket ?from))
+           (add-list (at ?rocket ?to))
+           (del-list (has-fuel ?rocket) (at ?rocket ?from)))
+
+(xoperator DESTROY
+           (params (?rocket ROCKET_T) (?place PLACE_T))
+           (preconds (has-fuel ?rocket) (at ?rocket ?place))
+           (add-list (destroyed ?rocket))
+           (del-list (has-fuel ?rocket) (at ?rocket ?place)))

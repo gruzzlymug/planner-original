@@ -1,0 +1,11 @@
+(operator STACK
+           (params (?top BLOCK_T) (?bottom BLOCK_T))
+           (preconds (clear ?top) (clear ?bottom))
+           (add-list (on ?top ?bottom))
+           (del-list (clear ?bottom) (on-table ?top)))
+          
+(operator UNSTACK
+           (params (?top BLOCK_T) (?bottom BLOCK_T))
+           (preconds (clear ?top) (on ?top ?bottom))
+           (add-list (clear ?bottom) (on-table ?top))
+           (del-list (on ?top ?bottom)))
